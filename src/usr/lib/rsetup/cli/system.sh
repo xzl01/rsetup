@@ -411,14 +411,11 @@ set_suspend_status() {
 
     require_root
 
-    # TODO: Pass $action explicitly to sleep control helpers instead of relying on dynamic scoping.
-    local DISABLE="$action"
-
-    __systemd_sleep_control
-    __logind_control
-    __gnome_schema_patch
-    __gnome_gsettings
-    __kde_control
+    __systemd_sleep_control "$action"
+    __logind_control "$action"
+    __gnome_schema_patch "$action"
+    __gnome_gsettings "$action"
+    __kde_control "$action"
 
     echo "Sleep control applied: $action"
     echo "Reboot is recommended to ensure GNOME schema changes fully take effect."
