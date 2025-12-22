@@ -170,7 +170,7 @@ Are you sure you want to erase the bootloader?"
 }
 
 __system_enable_sleep() {
-    if enable_config set_suspend_status "OFF"
+    if set_suspend_status "OFF"
     then
         msgbox "Sleep and hibernate settings have been restored. Reboot is recommended."
     else
@@ -179,7 +179,7 @@ __system_enable_sleep() {
 }
 
 __system_disable_sleep() {
-    if enable_config set_suspend_status "ON"
+    if set_suspend_status "ON"
     then
         msgbox "Sleep and hibernate have been disabled. Reboot is recommended."
     else

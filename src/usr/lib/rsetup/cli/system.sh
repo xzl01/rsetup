@@ -411,6 +411,7 @@ set_suspend_status() {
 
     require_root
 
+    # TODO: Pass $action explicitly to sleep control helpers instead of relying on dynamic scoping.
     local DISABLE="$action"
 
     __systemd_sleep_control
